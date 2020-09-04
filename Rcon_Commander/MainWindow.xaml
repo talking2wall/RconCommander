@@ -1,0 +1,84 @@
+﻿<Window x:Class="Rcon_Commander.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:Rcon_Commander.Properties"
+        mc:Ignorable="d"
+        Title="Rcon Commander" Height="437" Width="752" Closing="Window_Closing"
+        WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Background="{x:Null}" Foreground="{x:Null}" ResizeMode="NoResize">
+
+    <!--// Window Resources //-->
+    <Window.Resources>
+        <BitmapImage x:Key="bg" x:Name="bg1" UriSource="console_background.jpg"></BitmapImage>
+    </Window.Resources>
+
+    <Grid>
+        <!--// Window Background //-->
+        <Grid.Background>
+            <ImageBrush ImageSource="{StaticResource bg}"/>
+        </Grid.Background>
+
+        <!--// TextBox IP //-->
+        <TextBox x:Name="Tb_Ip" HorizontalAlignment="Left" Height="20" Margin="12,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+                 Text="{Binding Path=server_ip, Source={x:Static properties:Settings.Default}}"/>
+
+        <!--// TextBox Port-->
+        <TextBox x:Name="Tb_Port" HorizontalAlignment="Left" Height="20" Margin="142,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"
+                 Text="{Binding Path=server_port, Source={x:Static properties:Settings.Default}}"/>
+
+        <!--// PasswordBox Rcon_Password //-->
+        <PasswordBox x:Name="Pb_Rcon_Password" HorizontalAlignment="Left" Height="20" Margin="199,34,0,0" VerticalAlignment="Top" Width="75" PasswordChanged="Pb_Rcon_Password_PasswordChanged"/>
+
+        <!--// TextBox Rcon_Password //-->
+        <TextBox x:Name="Tb_Rcon_Password" HorizontalAlignment="Left" Height="20" Margin="199,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextChanged="Tb_Rcon_Password_TextChanged"
+                 Text="{Binding Path=rcon_password, Source={x:Static properties:Settings.Default}}"/>
+
+
+        <!--// TextBlock IP //-->
+        <TextBlock x:Name="Tbl_ip" HorizontalAlignment="Left" Margin="14,12,0,0" TextWrapping="Wrap" Text="IP:" VerticalAlignment="Top" Foreground="White"/>
+
+        <!--// TextBlock Rcon_Password //-->
+        <TextBlock x:Name="Tbl_rcon_password" HorizontalAlignment="Left" Margin="200,14,0,0" TextWrapping="Wrap" Text="Rcon Password:" VerticalAlignment="Top" RenderTransformOrigin="9.615,0.343" Height="21" Foreground="White"/>
+
+        <!--// TextBlock Port //-->
+        <TextBlock x:Name="Tbl_port" HorizontalAlignment="Left" Margin="143,14,0,0" TextWrapping="Wrap" Text="Port:" VerticalAlignment="Top" RenderTransformOrigin="9.615,0.343" Foreground="White"/>
+
+
+        <!--// CheckBox Hide Password //-->
+        <CheckBox x:Name="cb_hide_password" Content="Hide" HorizontalAlignment="Left" Margin="277,38,0,0" VerticalAlignment="Top" Foreground="White" IsChecked="True" Click="Cb_Hide_Password_Click"/>
+
+
+        <!--// Button Check Access //-->
+        <Button x:Name="Btn_Check_Access" Content="Check Access" HorizontalAlignment="Left" Margin="329,32,0,0" VerticalAlignment="Top" Width="86" Height="22" RenderTransformOrigin="1.874,1.055" Click="Btn_Login_Click"/>
+
+        <!--// Button Check Connection //-->
+        <Button x:Name="Btn_Check_Connection" Content="Check Connection" HorizontalAlignment="Left" Margin="423,32,0,0" VerticalAlignment="Top" Width="101" Height="22" RenderTransformOrigin="1.874,1.055" Click="Btn_Check_Connection_Click"/>
+
+        <!--// Button Copy Console //-->
+        <Button x:Name="Btn_Copy_Console" Content="Copy Console" HorizontalAlignment="Left" Margin="531,32,0,0" VerticalAlignment="Top" Width="96" Height="22" RenderTransformOrigin="1.874,1.055" Click="Btn_Copy_Console_Click"/>
+
+        <!--// Button Clear Console //-->
+        <Button x:Name="Btn_Clear_Console" Content="Clear Console" HorizontalAlignment="Left" Margin="634,32,0,0" VerticalAlignment="Top" Width="88" Height="22" RenderTransformOrigin="1.874,1.055" Click="Btn_Clear_Console_Click"/>
+
+
+        <!--// TextBox Console //-->
+        <TextBox x:Name="Tb_Console" HorizontalAlignment="Left" Height="294" Margin="13,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="710"
+                 Foreground="Green"
+                 FontSize="16"
+                 VerticalScrollBarVisibility="Auto"
+                 BorderBrush="#FFB3ABAB"
+                 IsReadOnly="True" Background="{x:Null}"/>
+
+
+        <!--// TextBox Command //-->
+        <TextBox x:Name="Tb_Command" HorizontalAlignment="Left" Height="23" Margin="13,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="666" Background="{x:Null}"
+            Foreground="Green"
+            FontSize="16"
+            BorderBrush="#FFB3ABAB" KeyUp="Tb_Command_KeyUp" CaretBrush="#FF186C1B"/>
+
+        <!--// Button Send //-->
+        <Button x:Name="Btn_Send" Content="Send" HorizontalAlignment="Left" Margin="684,361,0,0" VerticalAlignment="Top" Width="39" Height="23" RenderTransformOrigin="1.874,1.055" Click="Btn_Send_Click"/>
+
+    </Grid>
+</Window>
